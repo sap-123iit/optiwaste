@@ -17,13 +17,13 @@ ASSETS_PATH = Path(config["ASSETS_PATH"])
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-# Text configurations
+# UI text configs
 WEIGHT_TEXT = "0.05 kg"; WEIGHT_POS = (824.0, 495.0); WEIGHT_COLOR = "#155E24"; WEIGHT_FONT = ("Inter Bold", -40)
 TIME_TEXT = "18:49"; TIME_POS = (805.0, 13.0); TIME_COLOR = "#727272"; TIME_FONT = ("Inter Bold", -40)
 STATUS_LABEL_TEXT = "System status"; STATUS_LABEL_POS = (55.0, 495.0); STATUS_LABEL_COLOR = "#06552A"; STATUS_LABEL_FONT = ("Inter Bold", -20)
 STATUS_TEXT = "Ready to Scan"; STATUS_POS = (87.0, 533.0); STATUS_COLOR = "#727272"; STATUS_FONT = ("Inter Bold", -20)
 
-# Image configurations
+# Image configs
 images = [
     {"variable_name": "right_canvas", "file_name": "rightcanvas.png", "x_pos": 748.0, "y_pos": 300.0},
     {"variable_name": "left_canvas", "file_name": "leftcanvas.png", "x_pos": 258.0, "y_pos": 293.0},
@@ -37,7 +37,7 @@ images = [
     {"variable_name": "optiwaste_logo", "file_name": "optiwastelogo.png", "x_pos": 166.0, "y_pos": 39.0},
 ]
 
-# --- Tkinter window ---
+# Tkinter window
 window = Tk()
 window.geometry("1023x600")
 window.configure(bg="#F5F5F3")
@@ -59,13 +59,13 @@ canvas.create_text(TIME_POS[0], TIME_POS[1], anchor="nw", text=TIME_TEXT, fill=T
 canvas.create_text(STATUS_LABEL_POS[0], STATUS_LABEL_POS[1], anchor="nw", text=STATUS_LABEL_TEXT, fill=STATUS_LABEL_COLOR, font=STATUS_LABEL_FONT)
 canvas.create_text(STATUS_POS[0], STATUS_POS[1], anchor="nw", text=STATUS_TEXT, fill=STATUS_COLOR, font=STATUS_FONT)
 
-# --- Camera setup ---
+# Camera setup
 cap = None
 camera_ready = False
 
-# Replace with the exact pixel size of your left_camera_pane.png
-LEFT_CAM_WIDTH = 430
-LEFT_CAM_HEIGHT = 260
+# This MUST be the exact pixel size of your left_camera_pane content area
+LEFT_CAM_WIDTH = 450  # example, update with your actual content area width
+LEFT_CAM_HEIGHT = 312 # example, update with your actual content area height
 
 def initialize_camera():
     global cap, camera_ready
@@ -85,14 +85,15 @@ def update_camera():
     if ret:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = cv2.resize(frame, (LEFT_CAM_WIDTH, LEFT_CAM_HEIGHT))
+
         img = Image.fromarray(frame)
         imgtk = ImageTk.PhotoImage(image=img)
 
-        # Update the existing placeholder image
+        # Update placeholder image with live camera feed
         canvas.itemconfig(image_refs["left_camera_pane"][1], image=imgtk)
-        image_refs["left_camera_pane"] = (imgtk, image_refs["left_camera_pane"][1])  # keep reference
+        image_refs["left_camera_pane"] = (imgtk, image_refs["left_camera_pane"][1])
 
-    window.after(10, update_camera)
+    window.after(15, update_camera)
 
 # Start camera thread
 threading.Thread(target=initialize_camera, daemon=True).start()
