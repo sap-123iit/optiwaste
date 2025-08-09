@@ -3,7 +3,6 @@ from tkinter import Tk, Canvas, PhotoImage
 import threading
 import cv2
 from PIL import Image, ImageTk
-import time
 
 OUTPUT_PATH = Path(__file__).parent
 
@@ -18,12 +17,13 @@ ASSETS_PATH = Path(config["ASSETS_PATH"])
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-# --- UI Settings ---
+# Text configurations
 WEIGHT_TEXT = "0.05 kg"; WEIGHT_POS = (824.0, 495.0); WEIGHT_COLOR = "#155E24"; WEIGHT_FONT = ("Inter Bold", -40)
 TIME_TEXT = "18:49"; TIME_POS = (805.0, 13.0); TIME_COLOR = "#727272"; TIME_FONT = ("Inter Bold", -40)
 STATUS_LABEL_TEXT = "System status"; STATUS_LABEL_POS = (55.0, 495.0); STATUS_LABEL_COLOR = "#06552A"; STATUS_LABEL_FONT = ("Inter Bold", -20)
 STATUS_TEXT = "Ready to Scan"; STATUS_POS = (87.0, 533.0); STATUS_COLOR = "#727272"; STATUS_FONT = ("Inter Bold", -20)
 
+# Image configurations
 images = [
     {"variable_name": "right_canvas", "file_name": "rightcanvas.png", "x_pos": 748.0, "y_pos": 300.0},
     {"variable_name": "left_canvas", "file_name": "leftcanvas.png", "x_pos": 258.0, "y_pos": 293.0},
@@ -37,6 +37,7 @@ images = [
     {"variable_name": "optiwaste_logo", "file_name": "optiwastelogo.png", "x_pos": 166.0, "y_pos": 39.0},
 ]
 
+# --- Tkinter window ---
 window = Tk()
 window.geometry("1023x600")
 window.configure(bg="#F5F5F3")
@@ -44,7 +45,7 @@ window.configure(bg="#F5F5F3")
 canvas = Canvas(window, bg="#F5F5F3", height=600, width=1023, bd=0, highlightthickness=0, relief="ridge")
 canvas.place(x=0, y=0)
 
-# Load placeholder images
+# Load images
 image_refs = {}
 for img_data in images:
     var_name = img_data["variable_name"]
@@ -58,55 +59,47 @@ canvas.create_text(TIME_POS[0], TIME_POS[1], anchor="nw", text=TIME_TEXT, fill=T
 canvas.create_text(STATUS_LABEL_POS[0], STATUS_LABEL_POS[1], anchor="nw", text=STATUS_LABEL_TEXT, fill=STATUS_LABEL_COLOR, font=STATUS_LABEL_FONT)
 canvas.create_text(STATUS_POS[0], STATUS_POS[1], anchor="nw", text=STATUS_TEXT, fill=STATUS_COLOR, font=STATUS_FONT)
 
-# --- Camera Setup ---
+# --- Camera setup ---
 cap = None
-video_canvas_id = None
-frame_ref = None
-stop_thread = False
+camera_ready = False
 
-# Exact placeholder size — replace with actual size of left_camera_pane.png
-LEFT_CAM_WIDTH = 428
+# Replace with the exact pixel size of your left_camera_pane.png
+LEFT_CAM_WIDTH = 430
 LEFT_CAM_HEIGHT = 260
-LEFT_CAM_X = 262.0
-LEFT_CAM_Y = 298.0
 
-def camera_thread():
-    global cap, frame_ref, video_canvas_id
-    time.sleep(0.5)  # Let UI start
-    cap = cv2.VideoCapture(0)
-    if not cap.isOpened():
-        print("Camera not found")
+def initialize_camera():
+    global cap, camera_ready
+    try:
+        cap = cv2.VideoCapture(0)
+        cap.set(cv2.CAP_PROP_FPS, 30)
+        camera_ready = True
+    except Exception as e:
+        print(f"Error initializing camera: {e}")
+
+def update_camera():
+    if not camera_ready:
+        window.after(100, update_camera)
         return
 
-    while not stop_thread:
-        ret, frame = cap.read()
-        if not ret:
-            break
-
+    ret, frame = cap.read()
+    if ret:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame = cv2.resize(frame, (LEFT_CAM_WIDTH, LEFT_CAM_HEIGHT))
         img = Image.fromarray(frame)
-        frame_ref = ImageTk.PhotoImage(img)  # Keep reference to avoid GC
+        imgtk = ImageTk.PhotoImage(image=img)
 
-        if video_canvas_id is None:
-            # Remove placeholder image so no flicker
-            pane_img_id = image_refs["left_camera_pane"][1]
-            canvas.delete(pane_img_id)
-            # Create the camera feed image in the exact same position
-            video_canvas_id = canvas.create_image(
-                LEFT_CAM_X, LEFT_CAM_Y,
-                image=frame_ref
-            )
-        else:
-            canvas.itemconfig(video_canvas_id, image=frame_ref)
+        # Update the existing placeholder image
+        canvas.itemconfig(image_refs["left_camera_pane"][1], image=imgtk)
+        image_refs["left_camera_pane"] = (imgtk, image_refs["left_camera_pane"][1])  # keep reference
 
-        time.sleep(0.03)  # ~30 FPS
+    window.after(10, update_camera)
 
-threading.Thread(target=camera_thread, daemon=True).start()
+# Start camera thread
+threading.Thread(target=initialize_camera, daemon=True).start()
+update_camera()
 
 def on_close():
-    global stop_thread
-    stop_thread = True
+    global cap
     if cap:
         cap.release()
     window.destroy()
