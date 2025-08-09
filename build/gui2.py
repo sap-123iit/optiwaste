@@ -64,10 +64,17 @@ cap = None
 video_frame = None
 video_canvas_id = None
 stop_thread = False
+frame_ref = None  # Keep a persistent reference
+
+# Match size with placeholder
+LEFT_CAM_WIDTH = 430
+LEFT_CAM_HEIGHT = 260
+LEFT_CAM_X = 262.0
+LEFT_CAM_Y = 298.0
 
 def camera_thread():
-    global cap, video_frame, video_canvas_id
-    time.sleep(1)  # small delay so UI loads first
+    global cap, video_frame, frame_ref
+    time.sleep(1)  # Let UI load first
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         print("Camera not found")
@@ -76,27 +83,23 @@ def camera_thread():
         ret, frame = cap.read()
         if ret:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            frame = cv2.resize(frame, (int(430), int(260)))  # size of your camera pane
+            frame = cv2.resize(frame, (LEFT_CAM_WIDTH, LEFT_CAM_HEIGHT))
             img = Image.fromarray(frame)
-            imgtk = ImageTk.PhotoImage(image=img)
-            video_frame = imgtk
+            frame_ref = ImageTk.PhotoImage(image=img)  # Persistent reference
+            video_frame = frame_ref
         else:
             break
 
 def update_canvas():
     global video_frame, video_canvas_id
     if video_frame:
-        # Replace the "left_camera_pane" image with video frame
         if not video_canvas_id:
-            video_canvas_id = canvas.create_image(262.0, 298.0, image=video_frame)  # same position as your pane
+            video_canvas_id = canvas.create_image(LEFT_CAM_X, LEFT_CAM_Y, image=video_frame)
         else:
             canvas.itemconfig(video_canvas_id, image=video_frame)
     window.after(30, update_canvas)
 
-# Start camera in separate thread
 threading.Thread(target=camera_thread, daemon=True).start()
-
-# Start updating the canvas
 update_canvas()
 
 def on_close():
