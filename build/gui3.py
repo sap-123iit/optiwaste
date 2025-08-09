@@ -8,7 +8,7 @@ OUTPUT_PATH = Path(__file__).parent
 
 # Read config.txt
 config = {}
-with open(OUTPUT_PATH / "config.txt", "r") as config_file:
+with open(OUTPUT_PATH / "config1.txt", "r") as config_file:
     for line in config_file:
         key, value = line.strip().split("=")
         config[key] = value
