@@ -2,13 +2,13 @@ from pathlib import Path
 from tkinter import Tk, Canvas, PhotoImage
 import threading
 import cv2
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageDraw
 
 OUTPUT_PATH = Path(__file__).parent
 
 # Read config.txt
 config = {}
-with open(OUTPUT_PATH / "config.txt", "r") as config_file:
+with open(OUTPUT_PATH / "config1.txt", "r") as config_file:
     for line in config_file:
         key, value = line.strip().split("=")
         config[key] = value
@@ -64,13 +64,23 @@ cap = None
 camera_ready = False
 
 # Preview size (slightly smaller than pane for nice fit)
-PREVIEW_WIDTH = 410  # adjust this
-PREVIEW_HEIGHT = 240 # adjust this
+PREVIEW_WIDTH = 400  # adjust this
+PREVIEW_HEIGHT = 340 # adjust this
 PREVIEW_X = 262.0    # same as pane center X
 PREVIEW_Y = 298.0    # same as pane center Y
+CORNER_RADIUS = 25
 
 # Create placeholder for video feed
 video_canvas_id = canvas.create_image(PREVIEW_X, PREVIEW_Y, image=None)
+
+def create_rounded_mask(w, h, r):
+    """Create a rounded corner mask for the video frame."""
+    mask = Image.new("L", (w, h), 0)
+    draw = ImageDraw.Draw(mask)
+    draw.rounded_rectangle((0, 0, w, h), r, fill=255)
+    return mask
+
+mask = create_rounded_mask(PREVIEW_WIDTH, PREVIEW_HEIGHT, CORNER_RADIUS)
 
 def initialize_camera():
     global cap, camera_ready
@@ -92,9 +102,9 @@ def update_camera():
         frame = cv2.resize(frame, (PREVIEW_WIDTH, PREVIEW_HEIGHT))
 
         img = Image.fromarray(frame)
-        imgtk = ImageTk.PhotoImage(image=img)
+        img.putalpha(mask)  # apply rounded corners
 
-        # Update preview window
+        imgtk = ImageTk.PhotoImage(image=img)
         canvas.itemconfig(video_canvas_id, image=imgtk)
         image_refs["video_feed"] = imgtk  # keep reference
 
