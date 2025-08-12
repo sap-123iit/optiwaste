@@ -64,11 +64,11 @@ cap = None
 camera_ready = False
 
 # Preview size (slightly smaller than pane for nice fit)
-PREVIEW_WIDTH = 400  # adjust this
-PREVIEW_HEIGHT = 340 # adjust this
+PREVIEW_WIDTH = 420  # adjust this
+PREVIEW_HEIGHT = 350 # adjust this
 PREVIEW_X = 262.0    # same as pane center X
 PREVIEW_Y = 298.0    # same as pane center Y
-CORNER_RADIUS = 25
+CORNER_RADIUS = 20
 
 # Create placeholder for video feed
 video_canvas_id = canvas.create_image(PREVIEW_X, PREVIEW_Y, image=None)
