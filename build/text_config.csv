@@ -1,5 +1,5 @@
-text_id,text,x_pos,y_pos,color,font_name,font_size
-weight_text,0.05 kg,824.0,495.0,#155E24,Inter Bold,-40
-time_text,18:49,805.0,13.0,#727272,Inter Bold,-40
-status_label,System status,55.0,495.0,#06552A,Inter Bold,-20
-status_text,Ready to Scan,87.0,533.0,#727272,Inter Bold,-20
+key,text,x_pos,y_pos,color,font_name,font_size
+WEIGHT_TEXT,0.05 kg,824.0,495.0,#155E24,Inter Bold,-40
+TIME_TEXT,18:49,805.0,13.0,#727272,Inter Bold,-40
+STATUS_LABEL_TEXT,System status,55.0,495.0,#06552A,Inter Bold,-20
+STATUS_TEXT,Ready to Scan,87.0,533.0,#727272,Inter Bold,-20

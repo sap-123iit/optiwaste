@@ -1,3 +1,3 @@
-ASSETS_PATH=I:\Forgevision\device optiwaste\optiwaste\build\assets\frame0
+ASSETS_PATH=E:\Forgevision\Optiwaste\Device\optiwaste\build\assets\frame0
 IMAGE_CONFIG_PATH=image_config.csv
 TEXT_CONFIG_PATH=text_config.csv
