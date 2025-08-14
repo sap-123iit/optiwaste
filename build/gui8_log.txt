@@ -1,0 +1,230 @@
+2025-08-14 10:55:13,599 [INFO] Interrupt script started
+2025-08-14 10:55:34,797 [INFO] Camera OK on try 1
+2025-08-14 10:56:35,233 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 10:56:51,383 [INFO] Saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_10-55-48_2025-08-14_0x41.jpg
+2025-08-14 10:57:25,621 [INFO] Saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_10-56-54_2025-08-14_0x72.jpg
+2025-08-14 10:57:51,602 [INFO] Saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_10-57-40_2025-08-14_0x57.jpg
+2025-08-14 10:58:05,792 [INFO] Saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_10-57-56_2025-08-14_0x49.jpg
+2025-08-14 10:58:28,818 [INFO] Saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_10-58-10_2025-08-14_0x69.jpg
+2025-08-14 10:59:27,842 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:08:11,626 [INFO] Camera OK on try 1
+2025-08-14 11:08:12,146 [INFO] Interrupt script started
+2025-08-14 11:08:34,138 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:08:59,260 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-08-34_2025-08-14_0x36.jpg
+2025-08-14 11:09:02,149 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:09:37,244 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-09-02_2025-08-14_0x77.jpg
+2025-08-14 11:10:06,317 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:10:35,521 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-10-06_2025-08-14_0x45.jpg
+2025-08-14 11:10:38,424 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:10:51,606 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-10-38_2025-08-14_0x69.jpg
+2025-08-14 11:11:05,523 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:12:07,756 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:12:16,752 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-12-07_2025-08-14_0x45.jpg
+2025-08-14 11:12:19,882 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:12:36,878 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-12-19_2025-08-14_0x51.jpg
+2025-08-14 11:12:39,892 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:13:12,853 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-12-39_2025-08-14_0x69.jpg
+2025-08-14 11:13:15,691 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:13:26,799 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-13-15_2025-08-14_0x25.jpg
+2025-08-14 11:13:29,880 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:13:52,871 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-13-29_2025-08-14_0x73.jpg
+2025-08-14 11:15:48,198 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:16:03,195 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-15-48_2025-08-14_0x70.jpg
+2025-08-14 11:16:54,425 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:16:55,284 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:17:09,472 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-16-54_2025-08-14_0x72.jpg
+2025-08-14 11:17:14,471 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:18:25,591 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-17-14_2025-08-14_0x78.jpg
+2025-08-14 11:18:56,776 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:19:15,833 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-18-56_2025-08-14_0x51.jpg
+2025-08-14 11:19:20,806 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:20:12,054 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-19-20_2025-08-14_0x75.jpg
+2025-08-14 11:20:25,962 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:21:17,149 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-20-25_2025-08-14_0x30.jpg
+2025-08-14 11:21:24,218 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:21:35,267 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-21-24_2025-08-14_0x39.jpg
+2025-08-14 11:21:38,158 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:21:49,167 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-21-38_2025-08-14_0x46.jpg
+2025-08-14 11:22:30,316 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:23:11,583 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-22-30_2025-08-14_0x90.jpg
+2025-08-14 11:23:36,530 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:23:47,639 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-23-36_2025-08-14_0x32.jpg
+2025-08-14 11:23:50,501 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:23:58,716 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-23-50_2025-08-14_0x84.jpg
+2025-08-14 11:24:00,551 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:24:19,647 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-24-00_2025-08-14_0x31.jpg
+2025-08-14 11:26:02,878 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:26:24,088 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-26-02_2025-08-14_0x62.jpg
+2025-08-14 11:27:15,249 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:27:26,224 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-27-15_2025-08-14_0x58.jpg
+2025-08-14 11:27:41,212 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:29:13,564 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-27-41_2025-08-14_0x48.jpg
+2025-08-14 11:29:20,574 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:29:43,532 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-29-20_2025-08-14_0x83.jpg
+2025-08-14 11:29:46,633 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:29:55,624 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-29-46_2025-08-14_0x93.jpg
+2025-08-14 11:30:52,731 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:31:03,835 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-30-52_2025-08-14_0x40.jpg
+2025-08-14 11:32:11,013 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:32:22,901 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:32:33,962 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-32-11_2025-08-14_0x36.jpg
+2025-08-14 11:32:39,133 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:32:56,213 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-32-39_2025-08-14_0x99.jpg
+2025-08-14 11:32:59,076 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:33:14,080 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-32-59_2025-08-14_0x31.jpg
+2025-08-14 11:33:27,151 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:33:52,265 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-33-27_2025-08-14_0x47.jpg
+2025-08-14 11:34:27,420 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:34:38,374 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-34-27_2025-08-14_0x88.jpg
+2025-08-14 11:34:41,482 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:35:14,442 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-34-41_2025-08-14_0x40.jpg
+2025-08-14 11:35:29,626 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:35:38,650 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-35-29_2025-08-14_0x57.jpg
+2025-08-14 11:35:53,681 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:36:15,703 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-35-53_2025-08-14_0x48.jpg
+2025-08-14 11:36:20,682 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:36:22,562 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:36:37,796 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-36-20_2025-08-14_0x69.jpg
+2025-08-14 11:36:54,695 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:37:05,863 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-36-54_2025-08-14_0x35.jpg
+2025-08-14 11:38:08,967 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:38:18,018 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-38-08_2025-08-14_0x54.jpg
+2025-08-14 11:38:32,994 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:38:46,170 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-38-33_2025-08-14_0x85.jpg
+2025-08-14 11:38:56,996 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:39:08,033 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-38-56_2025-08-14_0x41.jpg
+2025-08-14 11:39:15,092 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:39:32,208 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-39-15_2025-08-14_0x81.jpg
+2025-08-14 11:39:37,261 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:39:48,141 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-39-37_2025-08-14_0x34.jpg
+2025-08-14 11:40:15,350 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:40:26,327 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-40-15_2025-08-14_0x39.jpg
+2025-08-14 11:40:47,363 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:41:00,494 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-40-47_2025-08-14_0x87.jpg
+2025-08-14 11:41:15,503 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:41:26,475 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-41-15_2025-08-14_0x94.jpg
+2025-08-14 11:41:29,594 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:41:40,616 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-41-29_2025-08-14_0x49.jpg
+2025-08-14 11:41:45,480 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:41:54,668 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-41-45_2025-08-14_0x38.jpg
+2025-08-14 11:42:19,716 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:42:38,701 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-42-19_2025-08-14_0x90.jpg
+2025-08-14 11:43:13,691 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:43:28,834 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-43-13_2025-08-14_0x51.jpg
+2025-08-14 11:43:40,187 [INFO] Subprocess terminated
+2025-08-14 11:48:27,570 [INFO] Camera OK on try 1
+2025-08-14 11:48:27,578 [INFO] Interrupt script started
+2025-08-14 11:48:29,644 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:48:38,861 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-48-29_2025-08-14_0x35.jpg
+2025-08-14 11:48:41,671 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:49:06,763 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-48-41_2025-08-14_0x94.jpg
+2025-08-14 11:49:15,767 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:49:24,786 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 11:49:57,921 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-49-15_2025-08-14_0x87.jpg
+2025-08-14 11:51:55,299 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:52:24,386 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-51-55_2025-08-14_0x65.jpg
+2025-08-14 11:52:27,494 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:52:54,552 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-52-27_2025-08-14_0x85.jpg
+2025-08-14 11:55:03,895 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:55:29,003 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-55-03_2025-08-14_0x56.jpg
+2025-08-14 11:56:24,132 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 11:56:41,087 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_11-56-24_2025-08-14_0x51.jpg
+2025-08-14 11:56:52,061 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 12:00:03,695 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:00:22,757 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-00-03_2025-08-14_0x60.jpg
+2025-08-14 12:00:27,765 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:00:50,939 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-00-27_2025-08-14_0x33.jpg
+2025-08-14 12:00:53,839 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:01:07,061 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-00-53_2025-08-14_0x92.jpg
+2025-08-14 12:02:46,186 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:03:17,242 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-02-46_2025-08-14_0x42.jpg
+2025-08-14 12:04:30,386 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 12:06:32,770 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:07:00,948 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-06-32_2025-08-14_0x26.jpg
+2025-08-14 12:07:24,018 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:07:41,020 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-07-24_2025-08-14_0x98.jpg
+2025-08-14 12:07:43,908 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-14 12:07:45,982 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:08:15,037 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-07-45_2025-08-14_0x97.jpg
+2025-08-14 12:08:18,139 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:08:29,250 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-08-18_2025-08-14_0x81.jpg
+2025-08-14 12:08:40,229 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:08:55,316 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-08-40_2025-08-14_0x94.jpg
+2025-08-14 12:09:26,393 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:09:30,952 [ERROR] Frame capture failed
+2025-08-14 12:09:31,275 [ERROR] Frame capture failed
+2025-08-14 12:09:31,602 [ERROR] Frame capture failed
+2025-08-14 12:09:31,928 [ERROR] Frame capture failed
+2025-08-14 12:09:32,250 [ERROR] Frame capture failed
+2025-08-14 12:09:32,566 [ERROR] Frame capture failed
+2025-08-14 12:09:32,886 [ERROR] Frame capture failed
+2025-08-14 12:09:33,204 [ERROR] Frame capture failed
+2025-08-14 12:09:33,530 [ERROR] Frame capture failed
+2025-08-14 12:09:33,847 [ERROR] Frame capture failed
+2025-08-14 12:09:34,166 [ERROR] Frame capture failed
+2025-08-14 12:09:34,492 [ERROR] Frame capture failed
+2025-08-14 12:09:34,816 [ERROR] Frame capture failed
+2025-08-14 12:09:35,144 [ERROR] Frame capture failed
+2025-08-14 12:09:35,583 [ERROR] Frame capture failed
+2025-08-14 12:09:35,901 [ERROR] Frame capture failed
+2025-08-14 12:09:36,217 [ERROR] Frame capture failed
+2025-08-14 12:09:36,543 [ERROR] Frame capture failed
+2025-08-14 12:09:36,860 [ERROR] Frame capture failed
+2025-08-14 12:09:37,179 [ERROR] Frame capture failed
+2025-08-14 12:09:37,503 [ERROR] Frame capture failed
+2025-08-14 12:09:37,828 [ERROR] Frame capture failed
+2025-08-14 12:09:38,149 [ERROR] Frame capture failed
+2025-08-14 12:09:38,468 [ERROR] Frame capture failed
+2025-08-14 12:09:38,793 [ERROR] Frame capture failed
+2025-08-14 12:09:39,118 [ERROR] Frame capture failed
+2025-08-14 12:09:39,443 [ERROR] Frame capture failed
+2025-08-14 12:09:39,770 [ERROR] Frame capture failed
+2025-08-14 12:09:40,097 [ERROR] Frame capture failed
+2025-08-14 12:09:40,422 [ERROR] Frame capture failed
+2025-08-14 12:09:40,750 [ERROR] Frame capture failed
+2025-08-14 12:09:41,078 [ERROR] Frame capture failed
+2025-08-14 12:09:41,399 [ERROR] Frame capture failed
+2025-08-14 12:09:41,432 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-09-26_2025-08-14_0x26.jpg
+2025-08-14 12:09:41,735 [ERROR] Frame capture failed
+2025-08-14 12:09:42,051 [ERROR] Frame capture failed
+2025-08-14 12:09:42,371 [ERROR] Frame capture failed
+2025-08-14 12:09:42,697 [ERROR] Frame capture failed
+2025-08-14 12:09:43,025 [ERROR] Frame capture failed
+2025-08-14 12:09:43,353 [ERROR] Frame capture failed
+2025-08-14 12:09:43,680 [ERROR] Frame capture failed
+2025-08-14 12:09:44,008 [ERROR] Frame capture failed
+2025-08-14 12:09:44,335 [ERROR] Frame capture failed
+2025-08-14 12:09:44,780 [ERROR] Frame capture failed
+2025-08-14 12:09:45,097 [ERROR] Frame capture failed
+2025-08-14 12:09:45,424 [ERROR] Frame capture failed
+2025-08-14 12:09:45,753 [ERROR] Frame capture failed
+2025-08-14 12:09:46,079 [ERROR] Frame capture failed
+2025-08-14 12:09:46,407 [ERROR] Frame capture failed
+2025-08-14 12:09:46,734 [ERROR] Frame capture failed
+2025-08-14 12:09:47,061 [ERROR] Frame capture failed
+2025-08-14 12:09:47,386 [ERROR] Frame capture failed
+2025-08-14 12:09:47,714 [ERROR] Frame capture failed
+2025-08-14 12:09:48,043 [ERROR] Frame capture failed
+2025-08-14 12:09:48,367 [ERROR] Frame capture failed
+2025-08-14 12:09:48,693 [ERROR] Frame capture failed
+2025-08-14 12:09:49,020 [ERROR] Frame capture failed
+2025-08-14 12:09:49,346 [ERROR] Frame capture failed
+2025-08-14 12:09:49,672 [ERROR] Frame capture failed
+2025-08-14 12:09:50,114 [ERROR] Frame capture failed
+2025-08-14 12:09:50,432 [ERROR] Frame capture failed
+2025-08-14 12:09:50,749 [ERROR] Frame capture failed
+2025-08-14 12:09:51,073 [ERROR] Frame capture failed
+2025-08-14 12:09:51,400 [ERROR] Frame capture failed
+2025-08-14 12:09:51,728 [ERROR] Frame capture failed
+2025-08-14 12:09:52,048 [ERROR] Frame capture failed
+2025-08-14 12:09:52,367 [ERROR] Frame capture failed
+2025-08-14 12:09:52,692 [ERROR] Frame capture failed
+2025-08-14 12:09:53,020 [ERROR] Frame capture failed
+2025-08-14 12:36:24,437 [INFO] Camera OK on try 1
+2025-08-14 12:36:25,508 [INFO] Interrupt script started
+2025-08-14 12:37:23,887 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:37:36,933 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-37-23_2025-08-14_0x69.jpg
+2025-08-14 12:39:22,149 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:39:49,414 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-39-22_2025-08-14_0x36.jpg
+2025-08-14 12:39:52,305 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 12:39:56,363 [INFO] Subprocess terminated

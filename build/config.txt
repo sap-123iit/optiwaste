@@ -1,3 +1,8 @@
 ASSETS_PATH=E:\Forgevision\Optiwaste\Device\optiwaste\build\assets\frame0
-IMAGE_CONFIG_PATH=image_config.csv
-TEXT_CONFIG_PATH=text_config.csv
+DATA_FILE=E:\Forgevision\Optiwaste\Device\optiwaste\build\final_weight_interrupt.txt
+STABLE_LOG_FILE=E:\Forgevision\Optiwaste\Device\optiwaste\build\stable_weight_log.txt
+STABILITY_LOG_FILE=stability_details.txt
+IMAGE_CONFIG=image_config.csv
+TEXT_CONFIG=text_config.csv
+INTERRUPT_SCRIPT=E:\Forgevision\Optiwaste\Device\optiwaste\build\interrupt_weightread_stability.py
+LOG_FILE=gui8_log.txt
