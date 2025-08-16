@@ -5,4 +5,6 @@ STABILITY_LOG_FILE=stability_details.txt
 IMAGE_CONFIG=image_config.csv
 TEXT_CONFIG=text_config.csv
 INTERRUPT_SCRIPT=E:\Forgevision\Optiwaste\Device\optiwaste\build\interrupt_weightread_stability.py
+RAW_DATA_SCRIPT=E:\Forgevision\Optiwaste\Device\optiwaste\build\weight_interrupt_generator.py
 LOG_FILE=gui8_log.txt
+SERIAL_INPUT_FILE=serialinput.txt

@@ -228,3 +228,36 @@
 2025-08-14 12:39:49,414 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_12-39-22_2025-08-14_0x36.jpg
 2025-08-14 12:39:52,305 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
 2025-08-14 12:39:56,363 [INFO] Subprocess terminated
+2025-08-14 17:57:34,472 [INFO] Camera OK on try 1
+2025-08-14 17:57:36,053 [INFO] Interrupt script started
+2025-08-14 17:57:52,322 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 17:58:07,459 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-57-52_2025-08-14_0x47.jpg
+2025-08-14 17:58:14,528 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-14 17:58:29,613 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-58-14_2025-08-14_0x31.jpg
+2025-08-14 17:59:03,533 [INFO] Subprocess terminated
+2025-08-16 17:40:39,217 [INFO] Camera OK on try 1
+2025-08-16 17:40:40,235 [INFO] Interrupt script started
+2025-08-16 17:47:51,351 [INFO] Subprocess terminated
+2025-08-16 17:50:18,659 [INFO] Camera OK on try 1
+2025-08-16 17:50:19,259 [INFO] Interrupt script started
+2025-08-16 17:52:20,888 [INFO] Camera OK on try 1
+2025-08-16 17:52:21,453 [INFO] Interrupt script started
+2025-08-16 17:52:25,655 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 17:52:55,836 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-52-25_2025-08-16_0x55.jpg
+2025-08-16 17:53:01,003 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 17:53:32,084 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-53-01_2025-08-16_0x40.jpg
+2025-08-16 17:53:37,005 [INFO] Subprocess terminated
+2025-08-16 17:55:32,895 [INFO] Camera OK on try 1
+2025-08-16 17:55:33,459 [INFO] Interrupt script started
+2025-08-16 17:55:49,852 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 17:56:02,091 [INFO] Subprocess terminated
+2025-08-16 17:58:23,642 [INFO] Camera OK on try 1
+2025-08-16 17:58:24,216 [INFO] Interrupt script started
+2025-08-16 17:59:01,650 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 17:59:13,788 [INFO] Subprocess terminated
+2025-08-16 18:01:55,767 [INFO] Camera OK on try 1
+2025-08-16 18:01:56,333 [INFO] Interrupt script started
+2025-08-16 18:03:47,988 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 18:04:36,347 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-03-47_2025-08-16_0x91.jpg
+2025-08-16 18:04:43,245 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-16 18:04:46,155 [INFO] Subprocess terminated

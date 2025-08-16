@@ -12,7 +12,7 @@ def load_config(file):
 BASE = Path(__file__).parent
 cfg = load_config(BASE / "config.txt")
 
-ASSETS_PATH, DATA_FILE, STABLE_LOG_FILE = Path(cfg["ASSETS_PATH"]), Path(cfg["DATA_FILE"]), Path(cfg["STABLE_LOG_FILE"])
+ASSETS_PATH, DATA_FILE, STABLE_LOG_FILE, SERIAL_INPUT_FILE = Path(cfg["ASSETS_PATH"]), Path(cfg["DATA_FILE"]), Path(cfg["STABLE_LOG_FILE"]), Path(cfg["SERIAL_INPUT_FILE"])
 STABILITY_LOG_FILE = BASE / cfg["STABILITY_LOG_FILE"]
 IMG_CSV, TXT_CSV, SCRIPT, LOG_FILE = BASE / cfg["IMAGE_CONFIG"], BASE / cfg["TEXT_CONFIG"], Path(cfg["INTERRUPT_SCRIPT"]), BASE / cfg["LOG_FILE"]
 SAVE_FOLDER, TEMP_FOLDER = BASE / "saved", BASE / "temp"
@@ -90,6 +90,17 @@ def last_stable_weight():
     except Exception as e: logging.error(f"Read stable weight error: {e}")
     return None
 
+def send_data_to_serial(data):
+    """Write the command to /home/pi/opti1/serialinput.txt instead of serial."""
+    try:
+        # Write single character to file
+        with open(SERIAL_INPUT_FILE, 'w') as f:
+            f.write(data.strip())
+    except Exception as e:
+        print("failed to write to serial input file")
+
+
+
 # Track weights for stability log
 stability_weights = []
 
@@ -142,6 +153,8 @@ def monitor_file():
 
             if prev_flag == 0 and flag == 1:
                 logging.info("Event 1: Interrupt 0→1 detected, capturing image")
+                send_data_to_serial("t")
+                send_data_to_serial("a")
                 if "interrupt_light" in img_ids: cv.itemconfigure(img_ids["interrupt_light"], state="normal")
                 if capture_frame():
                     ts = datetime.now().strftime("%H-%M-%S_%Y-%m-%d")
@@ -152,6 +165,7 @@ def monitor_file():
                     right_id = cv.create_image(754.0, 297.0, image=imgtk)
                     img_refs["captured_right"] = imgtk
                 win.after(5000, lambda: cv.itemconfigure(img_ids["interrupt_light"], state="hidden"))
+                send_data_to_serial("d")
 
             prev_flag = flag if prev_flag is not None else flag
     except Exception as e:
