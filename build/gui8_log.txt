@@ -266,3 +266,15 @@
 2025-08-18 14:41:37,155 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
 2025-08-18 14:42:10,503 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_14-41-37_2025-08-18_0x53.jpg
 2025-08-18 14:42:17,781 [INFO] Subprocess terminated
+2025-08-25 18:23:39,846 [INFO] Camera OK on try 1
+2025-08-25 18:23:41,522 [INFO] Interrupt script started
+2025-08-25 18:23:53,777 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-25 18:24:58,589 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-25 18:25:25,757 [ERROR] File monitor: not enough values to unpack (expected 2, got 1)
+2025-08-25 18:25:32,956 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-24-58_2025-08-25_0x92.jpg
+2025-08-25 18:25:35,876 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-25 18:26:21,362 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-25-35_2025-08-25_0x83.jpg
+2025-08-25 18:26:24,291 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-25 18:26:55,561 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-26-24_2025-08-25_0x46.jpg
+2025-08-25 18:27:08,449 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
+2025-08-25 18:27:21,116 [INFO] Subprocess terminated

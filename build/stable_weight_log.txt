@@ -905,3 +905,9 @@
 2025-08-16 18:04:36 - Stable weight: 0.91 kg
 2025-08-18 14:41:30 - Stable weight: 0.60 kg
 2025-08-18 14:42:10 - Stable weight: 0.53 kg
+2025-08-25 18:24:08 - Stable weight: 0.58 kg
+2025-08-25 18:24:53 - Stable weight: 0.61 kg
+2025-08-25 18:25:32 - Stable weight: 0.92 kg
+2025-08-25 18:26:21 - Stable weight: 0.83 kg
+2025-08-25 18:26:55 - Stable weight: 0.46 kg
+2025-08-25 18:27:05 - Stable weight: 0.96 kg
