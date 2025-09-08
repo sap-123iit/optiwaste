@@ -13,11 +13,25 @@ def load_config(file):
 BASE = Path(__file__).parent
 cfg = load_config(BASE / "config.txt")
 
-ASSETS_PATH, DATA_FILE, STABLE_LOG_FILE, SERIAL_INPUT_FILE = Path(cfg["ASSETS_PATH"]), Path(cfg["DATA_FILE"]), Path(cfg["STABLE_LOG_FILE"]), Path(cfg["SERIAL_INPUT_FILE"])
+ASSETS_PATH = Path(cfg["ASSETS_PATH"])
+DATA_FILE = Path(cfg["DATA_FILE"])
+STABLE_LOG_FILE = Path(cfg["STABLE_LOG_FILE"])
+SERIAL_INPUT_FILE = Path(cfg["SERIAL_INPUT_FILE"])
 STABILITY_LOG_FILE = BASE / cfg["STABILITY_LOG_FILE"]
-IMG_CSV, TXT_CSV, SCRIPT, LOG_FILE = BASE / cfg["IMAGE_CONFIG"], BASE / cfg["TEXT_CONFIG"], Path(cfg["INTERRUPT_SCRIPT"]), BASE / cfg["LOG_FILE"]
-SAVE_FOLDER, TEMP_FOLDER = BASE / "saved", BASE / "temp"
-SAVE_FOLDER.mkdir(exist_ok=True), TEMP_FOLDER.mkdir(exist_ok=True)
+IMG_CSV = BASE / cfg["IMAGE_CONFIG"]
+TXT_CSV = BASE / cfg["TEXT_CONFIG"]
+SCRIPT = Path(cfg["INTERRUPT_SCRIPT"])
+LOG_FILE = BASE / cfg["LOG_FILE"]
+DEVICE_NAME = cfg.get("DEVICE_NAME", "OptiA1")
+ROI_X = int(cfg.get("ROI_X", 0))
+ROI_Y = int(cfg.get("ROI_Y", 0))
+ROI_W = int(cfg.get("ROI_W", 960))
+ROI_H = int(cfg.get("ROI_H", 540))
+
+SAVE_FOLDER = BASE / "saved"
+TEMP_FOLDER = BASE / "temp"
+SAVE_FOLDER.mkdir(exist_ok=True)
+TEMP_FOLDER.mkdir(exist_ok=True)
 
 SERIAL_SENDER_SCRIPT = BASE / "serial_file_sender.py"
 
@@ -30,10 +44,13 @@ texts = pd.read_csv(TXT_CSV).to_dict(orient="records")
 rel_asset = lambda p: ASSETS_PATH / p
 
 # ===== GUI Setup =====
-win = Tk(); win.geometry("1023x600"); win.configure(bg="#F5F5F3")
-cv = Canvas(win, bg="#F5F5F3", height=600, width=1023, bd=0, highlightthickness=0); cv.place(x=0, y=0)
+win = Tk()
+win.geometry("1920x1080")
+win.configure(bg="#F5F5F3")
+cv = Canvas(win, bg="#F5F5F3", height=1080, width=1920, bd=0, highlightthickness=0)
+cv.place(x=0, y=0)
 
-# Keep references to avoid Tkinter image garbage collection
+# Keep references to avoid garbage collection
 img_refs, img_ids = {}, {}
 for r in images:
     img = PhotoImage(file=rel_asset(r["file_name"]))
@@ -42,29 +59,41 @@ for r in images:
 if "interrupt_light" in img_ids:
     cv.itemconfigure(img_ids["interrupt_light"], state="hidden")
 
-txt_ids = {t["key"]: cv.create_text(t["x_pos"], t["y_pos"], anchor="nw", text=t["text"], fill=t["color"],
-            font=(t["font_name"], t["font_size"])) for t in texts}
+txt_ids = {}
+for t in texts:
+    txt_ids[t["key"]] = cv.create_text(t["x_pos"], t["y_pos"], anchor="nw", text=t["text"],
+                                       fill=t["color"], font=(t["font_name"], t["font_size"]))
 
-# ===== Camera (Picamera2) =====
-PREVIEW_W, PREVIEW_H, PREVIEW_X, PREVIEW_Y, RADIUS = 410, 240, 262.0, 298.0, 25
+# ===== Camera Setup =====
+PREVIEW_W, PREVIEW_H = ROI_W, ROI_H
+PREVIEW_X, PREVIEW_Y = ROI_W // 2, ROI_H // 2
+RADIUS = 50
 ROTATE_RIGHT_90 = True
 
-left_video_id, right_id, latest_frame, captured_path, prev_flag, last_mtime = cv.create_image(PREVIEW_X, PREVIEW_Y, image=None), None, None, None, None, None
-mask = Image.new("L", (PREVIEW_W, PREVIEW_H), 0); ImageDraw.Draw(mask).rounded_rectangle((0,0,PREVIEW_W,PREVIEW_H), RADIUS, fill=255)
+left_video_id = cv.create_image(PREVIEW_X, PREVIEW_Y, image=None)
+right_id = None
+latest_frame = None
+captured_path = None
+prev_flag = None
+last_mtime = None
 
-picam2, camera_ready = None, False
+mask = Image.new("L", (PREVIEW_W, PREVIEW_H), 0)
+ImageDraw.Draw(mask).rounded_rectangle((0, 0, PREVIEW_W, PREVIEW_H), RADIUS, fill=255)
+
+picam2 = None
+camera_ready = False
 
 def init_cam():
     global picam2, camera_ready
     try:
         picam2 = Picamera2()
-        cfg = picam2.create_preview_configuration(main={"size": (PREVIEW_W, PREVIEW_H), "format": "RGB888"})
-        picam2.configure(cfg)
+        config = picam2.create_preview_configuration(main={"size": (PREVIEW_W, PREVIEW_H), "format": "RGB888"})
+        picam2.configure(config)
         picam2.start()
         camera_ready = True
         logging.info("CSI camera initialized (Picamera2, RGB888)")
     except Exception as e:
-        logging.error(f"CSI camera init failed: {e}")
+        logging.error(f"Camera init failed: {e}")
         camera_ready = False
 
 def capture_frame():
@@ -74,13 +103,10 @@ def capture_frame():
     try:
         frame = picam2.capture_array()
         pil_im = Image.fromarray(frame)
-
         if ROTATE_RIGHT_90:
             pil_im = pil_im.rotate(-90, expand=True)
-
         if pil_im.size != (PREVIEW_W, PREVIEW_H):
             pil_im = pil_im.resize((PREVIEW_W, PREVIEW_H), Image.Resampling.LANCZOS)
-
         latest_frame = pil_im
         return True
     except Exception as e:
@@ -89,25 +115,29 @@ def capture_frame():
 
 def update_cam():
     if camera_ready and capture_frame():
-        img_copy = latest_frame.copy(); img_copy.putalpha(mask)
+        img_copy = latest_frame.copy()
+        img_copy.putalpha(mask)
         imgtk = ImageTk.PhotoImage(image=img_copy)
-        cv.itemconfig(left_video_id, image=imgtk); img_refs["video_feed"] = imgtk
+        cv.itemconfig(left_video_id, image=imgtk)
+        img_refs["video_feed"] = imgtk
     win.after(15, update_cam)
 
-# ===== Time =====
-def update_time(): 
-    if "TIME_TEXT" in txt_ids: 
+# ===== Time Update =====
+def update_time():
+    if "TIME_TEXT" in txt_ids:
         cv.itemconfig(txt_ids["TIME_TEXT"], text=datetime.now().strftime("%H:%M"))
     win.after(1000, update_time)
 
-# ===== Weight Log Reader =====
+# ===== Stable Weight Reader =====
 def last_stable_weight():
     try:
-        if not STABLE_LOG_FILE.exists(): return None
+        if not STABLE_LOG_FILE.exists():
+            return None
         lines = [l.strip() for l in open(STABLE_LOG_FILE) if l.strip()]
         if lines and "Stable weight:" in lines[-1]:
             return lines[-1].split("Stable weight:")[1].strip().replace("kg", "").strip()
-    except Exception as e: logging.error(f"Read stable weight error: {e}")
+    except Exception as e:
+        logging.error(f"Read stable weight error: {e}")
     return None
 
 def send_data_to_serial(data):
@@ -117,10 +147,8 @@ def send_data_to_serial(data):
     except Exception as e:
         print("failed to write to serial input file")
 
-# Track weights for stability log
 stability_weights = []
 
-# ===== Event 2: Stability Achieved =====
 def monitor_stable_log():
     global last_mtime, captured_path, right_id, stability_weights
     try:
@@ -132,8 +160,9 @@ def monitor_stable_log():
                 last_mtime = m
                 w = last_stable_weight()
                 if w and captured_path and captured_path.exists():
-                    safe_w, ts = w.replace(".", "x"), captured_path.stem.split("OptiA1_")[1]
-                    final = SAVE_FOLDER / f"OptiA1_{ts}_{safe_w}.jpg"
+                    safe_w = w.replace(".", "x")
+                    ts = captured_path.stem.split(f"{DEVICE_NAME}_")[1]
+                    final = SAVE_FOLDER / f"{DEVICE_NAME}_{ts}_{safe_w}.jpg"
                     Image.open(captured_path).save(final)
                     captured_path.unlink()
                     logging.info(f"Event 2: Stable weight detected, saved {final}")
@@ -143,50 +172,57 @@ def monitor_stable_log():
                                 ", ".join(f"{val:.2f}" for val in stability_weights) +
                                 f" -- stable (final: {w} kg)\n")
                     stability_weights.clear()
-
                     captured_path = None
                     if right_id:
-                        cv.delete(right_id); right_id = None
+                        cv.delete(right_id)
+                        right_id = None
                         cv.itemconfigure(img_ids["right_camera_pane"], state="normal")
                         img_refs["captured_right"] = None
-    except Exception as e: logging.error(f"Stable log monitor: {e}")
+                        send_data_to_serial("s")
+    except Exception as e:
+        logging.error(f"Stable log monitor error: {e}")
     win.after(200, monitor_stable_log)
 
-# ===== Event 1: Interrupt 0→1 =====
+# ===== File Monitoring =====
 def monitor_file():
     global captured_path, prev_flag, right_id, stability_weights
     try:
         if camera_ready and DATA_FILE.exists():
             flag, weight = open(DATA_FILE).read().strip().split(",", 1)
             flag, w_val = int(flag), weight.strip().replace(" kg", "")
-            try: wf = float(w_val)
-            except: wf = 0.0
+            try:
+                wf = float(w_val)
+            except:
+                wf = 0.0
             disp = f"{wf*1000:.1f} g" if wf < 1 else f"{wf:.2f} kg"
-            if "WEIGHT_TEXT" in txt_ids: 
+            if "WEIGHT_TEXT" in txt_ids:
                 cv.itemconfig(txt_ids["WEIGHT_TEXT"], text=disp)
-
             if flag == 1:
                 stability_weights.append(wf)
-
             if prev_flag == 0 and flag == 1:
-                logging.info("Event 1: Interrupt 0→1 detected, capturing image")
-                send_data_to_serial("t")
-                send_data_to_serial("a")
-                if "interrupt_light" in img_ids: cv.itemconfigure(img_ids["interrupt_light"], state="normal")
-                if capture_frame():
-                    ts = datetime.now().strftime("%H-%M-%S_%Y-%m-%d")
-                    captured_path = TEMP_FOLDER / f"OptiA1_{ts}.jpg"
-                    latest_frame.save(captured_path)
-                    img_copy = latest_frame.copy(); img_copy.putalpha(mask)
-                    imgtk = ImageTk.PhotoImage(image=img_copy)
-                    right_id = cv.create_image(754.0, 297.0, image=imgtk)
-                    img_refs["captured_right"] = imgtk
-                win.after(5000, lambda: cv.itemconfigure(img_ids["interrupt_light"], state="hidden"))
-                send_data_to_serial("d")
+                logging.info("Event 1: Interrupt 0→1 detected, preparing to capture image")
+                send_data_to_serial("y")
+                if "interrupt_light" in img_ids:
+                    cv.itemconfigure(img_ids["interrupt_light"], state="normal")
 
+                def delayed_capture():
+                    global captured_path, right_id
+                    if capture_frame():
+                        ts = datetime.now().strftime("%H-%M-%S_%Y-%m-%d")
+                        captured_path = TEMP_FOLDER / f"{DEVICE_NAME}_{ts}.jpg"
+                        latest_frame.save(captured_path)
+                        img_copy = latest_frame.copy()
+                        img_copy.putalpha(mask)
+                        imgtk = ImageTk.PhotoImage(image=img_copy)
+                        right_id = cv.create_image(int(754 * (1920/1023)), int(210 * (1080/600)), image=imgtk)
+                        img_refs["captured_right"] = imgtk
+                    win.after(5000, lambda: cv.itemconfigure(img_ids["interrupt_light"], state="hidden"))
+                    send_data_to_serial("z")
+
+                win.after(1000, delayed_capture)
             prev_flag = flag if prev_flag is not None else flag
     except Exception as e:
-        logging.error(f"File monitor: {e}")
+        logging.error(f"File monitor error: {e}")
     win.after(200, monitor_file)
 
 # ===== Subprocess Handling =====
@@ -196,26 +232,21 @@ serial_handle = None
 def run_script():
     global subproc_handle, serial_handle
     try:
-        # Interrupt script
         if platform.system() == "Windows":
             subproc_handle = subprocess.Popen([sys.executable, str(SCRIPT)],
                                               creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
         else:
             subproc_handle = subprocess.Popen([sys.executable, str(SCRIPT)], start_new_session=True)
         logging.info("Interrupt script started")
-
-        # Serial file sender
         if platform.system() == "Windows":
             serial_handle = subprocess.Popen([sys.executable, str(SERIAL_SENDER_SCRIPT)],
                                              creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
         else:
             serial_handle = subprocess.Popen([sys.executable, str(SERIAL_SENDER_SCRIPT)], start_new_session=True)
         logging.info("Serial file sender started")
-
     except Exception as e:
         logging.error(f"Start script error: {e}")
 
-# ===== Start after Camera Ready =====
 def start_when_ready():
     if camera_ready:
         run_script()
@@ -223,20 +254,13 @@ def start_when_ready():
     else:
         win.after(100, start_when_ready)
 
-threading.Thread(target=init_cam, daemon=True).start()
-threading.Thread(target=monitor_stable_log, daemon=True).start()
-update_cam(); update_time()
-win.after(100, start_when_ready)
-
-# ===== Close =====
+# ===== Close Handling =====
 def on_close():
     try:
         if picam2:
             picam2.stop()
-    except Exception:
+    except:
         pass
-
-    # Kill subprocesses
     for handle in [subproc_handle, serial_handle]:
         if handle and handle.poll() is None:
             try:
@@ -250,6 +274,13 @@ def on_close():
             except Exception as e:
                 logging.error(f"Error terminating subprocess: {e}")
     win.destroy()
+
+# ===== Initialize =====
+threading.Thread(target=init_cam, daemon=True).start()
+threading.Thread(target=monitor_stable_log, daemon=True).start()
+update_cam()
+update_time()
+win.after(100, start_when_ready)
 
 win.protocol("WM_DELETE_WINDOW", on_close)
 win.resizable(False, False)

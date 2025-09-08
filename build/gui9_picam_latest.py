@@ -46,7 +46,7 @@ txt_ids = {t["key"]: cv.create_text(t["x_pos"], t["y_pos"], anchor="nw", text=t[
             font=(t["font_name"], t["font_size"])) for t in texts}
 
 # ===== Camera (Picamera2) =====
-PREVIEW_W, PREVIEW_H, PREVIEW_X, PREVIEW_Y, RADIUS = 410, 240, 262.0, 298.0, 25
+PREVIEW_W, PREVIEW_H, PREVIEW_X, PREVIEW_Y, RADIUS = 510, 240, 262.0, 298.0, 25
 ROTATE_RIGHT_90 = True
 
 left_video_id, right_id, latest_frame, captured_path, prev_flag, last_mtime = cv.create_image(PREVIEW_X, PREVIEW_Y, image=None), None, None, None, None, None
@@ -147,8 +147,10 @@ def monitor_stable_log():
                     captured_path = None
                     if right_id:
                         cv.delete(right_id); right_id = None
+                       
                         cv.itemconfigure(img_ids["right_camera_pane"], state="normal")
                         img_refs["captured_right"] = None
+                        send_data_to_serial("s")
     except Exception as e: logging.error(f"Stable log monitor: {e}")
     win.after(200, monitor_stable_log)
 
@@ -170,8 +172,8 @@ def monitor_file():
 
             if prev_flag == 0 and flag == 1:
                 logging.info("Event 1: Interrupt 0→1 detected, capturing image")
-                send_data_to_serial("t")
-                send_data_to_serial("a")
+                
+                send_data_to_serial("y")
                 if "interrupt_light" in img_ids: cv.itemconfigure(img_ids["interrupt_light"], state="normal")
                 if capture_frame():
                     ts = datetime.now().strftime("%H-%M-%S_%Y-%m-%d")
@@ -179,10 +181,11 @@ def monitor_file():
                     latest_frame.save(captured_path)
                     img_copy = latest_frame.copy(); img_copy.putalpha(mask)
                     imgtk = ImageTk.PhotoImage(image=img_copy)
-                    right_id = cv.create_image(754.0, 297.0, image=imgtk)
+                    right_id = cv.create_image(754.0, 210.0, image=imgtk)
                     img_refs["captured_right"] = imgtk
                 win.after(5000, lambda: cv.itemconfigure(img_ids["interrupt_light"], state="hidden"))
-                send_data_to_serial("d")
+                send_data_to_serial("z")
+                
 
             prev_flag = flag if prev_flag is not None else flag
     except Exception as e:
