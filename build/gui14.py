@@ -66,8 +66,8 @@ for t in texts:
     txt_ids[t["key"]] = cv.create_text(t["x_pos"] * screen_width / 1920, t["y_pos"] * screen_height / 1080, anchor="nw", text=t["text"],
                                        fill=t["color"], font=(t["font_name"], int(t["font_size"] * min(screen_width / 1920, screen_height / 1080))))
 
-# Hide systemstat, placehand, and scanrdy initially if they exist
-for img_name in ["systemstat", "placehand", "scanrdy"]:
+# Hide placehand and scanrdy initially if they exist
+for img_name in ["placehand", "scanrdy"]:
     if img_name in img_ids:
         cv.itemconfigure(img_ids[img_name], state="normal")
 
@@ -205,8 +205,8 @@ def monitor_stable_log():
                         img_refs["captured_right"] = None
                         send_data_to_serial("s")
                     
-                    # Show systemstat, placehand, and scanrdy again after image is saved
-                    for img_name in ["systemstat", "placehand", "scanrdy"]:
+                    # Show placehand and scanrdy again after image is saved
+                    for img_name in ["placehand", "scanrdy"]:
                         if img_name in img_ids:
                             cv.itemconfigure(img_ids[img_name], state="normal")
     except Exception as e:
@@ -230,8 +230,8 @@ def monitor_file():
                 send_data_to_serial("y")
                 if "interrupt_light" in img_ids: cv.itemconfigure(img_ids["interrupt_light"], state="normal")
                 
-                # Hide systemstat, placehand, and scanrdy when interrupt light appears
-                for img_name in ["systemstat", "placehand", "scanrdy"]:
+                # Hide placehand and scanrdy when interrupt light appears
+                for img_name in ["placehand", "scanrdy"]:
                     if img_name in img_ids:
                         cv.itemconfigure(img_ids[img_name], state="hidden")
 
