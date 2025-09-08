@@ -44,7 +44,6 @@ rel_asset = lambda p: ASSETS_PATH / p
 win = Tk()
 win.attributes('-fullscreen', True)  # Force full-screen mode
 win.attributes('-topmost', True)  # Keep window on top of all applications
-win.state('zoomed')  # Maximize window to ensure full coverage
 win.configure(bg="#F5F5F3", bd=0)  # Remove window borders
 
 # Get screen dimensions to set canvas size
