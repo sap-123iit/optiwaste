@@ -42,7 +42,7 @@ rel_asset = lambda p: ASSETS_PATH / p
 
 # ===== GUI Setup =====
 win = Tk()
-win.geometry("1920x1080")
+win.attributes('-fullscreen', True)  # Set to full-screen mode
 win.configure(bg="#F5F5F3")
 cv = Canvas(win, bg="#F5F5F3", height=1080, width=1920, bd=0, highlightthickness=0)
 cv.place(x=0, y=0)
