@@ -49,6 +49,7 @@ win.configure(bg="#F5F5F3", bd=0)  # Remove window borders
 # Get screen dimensions to set canvas size
 screen_width = win.winfo_screenwidth()
 screen_height = win.winfo_screenheight()
+logging.info(f"Screen resolution: {screen_width}x{screen_height}")  # Log screen resolution
 cv = Canvas(win, bg="#F5F5F3", height=screen_height, width=screen_width, bd=0, highlightthickness=0)
 cv.pack(fill="both", expand=True)  # Ensure canvas fills the entire window
 
@@ -61,15 +62,21 @@ for r in images:
 if "interrupt_light" in img_ids:
     cv.itemconfigure(img_ids["interrupt_light"], state="hidden")
 
+# Log available image IDs for debugging
+logging.info(f"Available image IDs: {list(img_ids.keys())}")
+
 txt_ids = {}
 for t in texts:
     txt_ids[t["key"]] = cv.create_text(t["x_pos"] * screen_width / 1920, t["y_pos"] * screen_height / 1080, anchor="nw", text=t["text"],
                                        fill=t["color"], font=(t["font_name"], int(t["font_size"] * min(screen_width / 1920, screen_height / 1080))))
 
-# Hide placehand and scanrdy initially if they exist
+# Set initial visibility for placehand and scanrdy
 for img_name in ["placehand", "scanrdy"]:
     if img_name in img_ids:
         cv.itemconfigure(img_ids[img_name], state="normal")
+        logging.info(f"Set initial visibility for {img_name} to normal")
+    else:
+        logging.warning(f"Image {img_name} not found in img_ids")
 
 # ===== Camera Setup =====
 ROTATE_RIGHT_90 = True
@@ -209,6 +216,10 @@ def monitor_stable_log():
                     for img_name in ["placehand", "scanrdy"]:
                         if img_name in img_ids:
                             cv.itemconfigure(img_ids[img_name], state="normal")
+                            logging.info(f"Set {img_name} to normal after image saved")
+                        else:
+                            logging.warning(f"Image {img_name} not found in img_ids when setting to normal")
+
     except Exception as e:
         logging.error(f"Stable log monitor error: {e}")
     win.after(200, monitor_stable_log)
@@ -228,12 +239,17 @@ def monitor_file():
             if prev_flag == 0 and flag == 1:
                 logging.info("Event 1: Interrupt 0→1 detected, preparing to capture image")
                 send_data_to_serial("y")
-                if "interrupt_light" in img_ids: cv.itemconfigure(img_ids["interrupt_light"], state="normal")
+                if "interrupt_light" in img_ids:
+                    cv.itemconfigure(img_ids["interrupt_light"], state="normal")
+                    logging.info("Set interrupt_light to normal")
                 
                 # Hide placehand and scanrdy when interrupt light appears
                 for img_name in ["placehand", "scanrdy"]:
                     if img_name in img_ids:
                         cv.itemconfigure(img_ids[img_name], state="hidden")
+                        logging.info(f"Set {img_name} to hidden when interrupt_light appears")
+                    else:
+                        logging.warning(f"Image {img_name} not found in img_ids when hiding")
 
                 def delayed_capture():
                     global captured_path, right_id
