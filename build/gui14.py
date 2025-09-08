@@ -44,13 +44,14 @@ rel_asset = lambda p: ASSETS_PATH / p
 win = Tk()
 win.attributes('-fullscreen', True)  # Force full-screen mode
 win.attributes('-topmost', True)  # Keep window on top of all applications
-win.configure(bg="#F5F5F3")
+win.state('zoomed')  # Maximize window to ensure full coverage
+win.configure(bg="#F5F5F3", bd=0)  # Remove window borders
 
 # Get screen dimensions to set canvas size
 screen_width = win.winfo_screenwidth()
 screen_height = win.winfo_screenheight()
 cv = Canvas(win, bg="#F5F5F3", height=screen_height, width=screen_width, bd=0, highlightthickness=0)
-cv.place(x=0, y=0)
+cv.pack(fill="both", expand=True)  # Ensure canvas fills the entire window
 
 # Keep references to avoid garbage collection
 img_refs, img_ids = {}, {}
