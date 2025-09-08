@@ -278,3 +278,46 @@
 2025-08-25 18:26:55,561 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-26-24_2025-08-25_0x46.jpg
 2025-08-25 18:27:08,449 [INFO] Event 1: Interrupt 0\u21921 detected, capturing image
 2025-08-25 18:27:21,116 [INFO] Subprocess terminated
+2025-09-08 16:59:00,736 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 16:59:02,417 [INFO] Interrupt script started
+2025-09-08 16:59:02,425 [INFO] Serial file sender started
+2025-09-08 16:59:25,034 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 16:59:41,885 [INFO] Subprocess terminated
+2025-09-08 17:14:33,154 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 17:14:34,983 [INFO] Interrupt script started
+2025-09-08 17:14:34,992 [INFO] Serial file sender started
+2025-09-08 17:15:15,469 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 17:15:30,763 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-15-16_2025-09-08_0x78.jpg
+2025-09-08 17:15:36,616 [INFO] Subprocess terminated
+2025-09-08 17:25:17,218 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 17:25:19,116 [INFO] Interrupt script started
+2025-09-08 17:25:19,126 [INFO] Serial file sender started
+2025-09-08 17:25:19,331 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 17:27:32,524 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-25-20_2025-09-08_0x56.jpg
+2025-09-08 17:27:37,496 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 17:27:54,738 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_17-27-38_2025-09-08_0x32.jpg
+2025-09-08 17:27:59,730 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 17:28:20,707 [INFO] Subprocess terminated
+2025-09-08 18:55:03,482 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 18:55:03,576 [INFO] Interrupt script started
+2025-09-08 18:55:03,586 [INFO] Serial file sender started
+2025-09-08 18:55:03,595 [INFO] File upload service started
+2025-09-08 18:55:09,966 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 18:55:18,923 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_18-55-10_2025-09-08_0x43.jpg
+2025-09-08 18:55:42,396 [INFO] Subprocess terminated
+2025-09-08 18:55:42,897 [INFO] Subprocess terminated
+2025-09-08 18:56:38,692 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 18:56:39,454 [INFO] Interrupt script started
+2025-09-08 18:56:39,463 [INFO] Serial file sender started
+2025-09-08 18:56:39,472 [INFO] File upload service started
+2025-09-08 18:57:13,827 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 18:57:19,103 [INFO] Subprocess terminated
+2025-09-08 18:57:19,604 [INFO] Subprocess terminated
+2025-09-08 19:16:02,692 [INFO] OpenCV camera initialized (source 0)
+2025-09-08 19:16:04,582 [INFO] Interrupt script started
+2025-09-08 19:16:04,592 [INFO] Serial file sender started
+2025-09-08 19:16:04,600 [INFO] File upload service started
+2025-09-08 19:16:35,095 [INFO] Event 1: Interrupt 0\u21921 detected, preparing to capture image
+2025-09-08 19:17:06,241 [INFO] Event 2: Stable weight detected, saved e:\Forgevision\Optiwaste\Device\optiwaste\build\saved\OptiA1_19-16-36_2025-09-08_0x74.jpg
+2025-09-08 19:17:14,861 [INFO] Subprocess terminated
+2025-09-08 19:17:15,363 [INFO] Subprocess terminated

@@ -1,5 +1,3 @@
 key,text,x_pos,y_pos,color,font_name,font_size
-WEIGHT_TEXT,0 kg,1547,891,#155E24,Inter Bold,-72
-TIME_TEXT,18:49,1511,23,#727272,Inter Bold,-72
-STATUS_LABEL_TEXT,System status,103,891,#06552A,Inter Bold,-36
-STATUS_TEXT,Ready to Scan,163,959,#727272,Inter Bold,-36
+TIME_TEXT,18:49,1680,47,#727272,Inter Bold,-80
+WEIGHT_TEXT,0.05 kg,1661,930,#155E24,Inter Bold,-55

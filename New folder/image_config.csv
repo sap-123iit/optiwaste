@@ -1,0 +1,11 @@
+variable_name,file_name,x_pos,y_pos
+right_canvas,rightcanvas.png,748.0,300.0
+left_canvas,leftcanvas.png,258.0,293.0
+interrupt_light,interruptlight.png,262.0,297.0
+left_camera_pane,leftcamerapane.png,262.0,298.0
+right_camera_pane,rightcamerapane.png,754.0,297.0
+left_camera_heading,leftcameraheading.png,124.0,98.0
+right_camera_heading,rightcameraheading.png,641.0,98.0
+network_wifi,network_wifi.png,969.0,35.0
+place_hand,placehand.png,75.0,544.0
+optiwaste_logo,optiwastelogo.png,166.0,39.0
