@@ -42,9 +42,14 @@ rel_asset = lambda p: ASSETS_PATH / p
 
 # ===== GUI Setup =====
 win = Tk()
-win.attributes('-fullscreen', True)  # Set to full-screen mode
+win.attributes('-fullscreen', True)  # Force full-screen mode
+win.attributes('-topmost', True)  # Keep window on top of all applications
 win.configure(bg="#F5F5F3")
-cv = Canvas(win, bg="#F5F5F3", height=1080, width=1920, bd=0, highlightthickness=0)
+
+# Get screen dimensions to set canvas size
+screen_width = win.winfo_screenwidth()
+screen_height = win.winfo_screenheight()
+cv = Canvas(win, bg="#F5F5F3", height=screen_height, width=screen_width, bd=0, highlightthickness=0)
 cv.place(x=0, y=0)
 
 # Keep references to avoid garbage collection
@@ -52,14 +57,14 @@ img_refs, img_ids = {}, {}
 for r in images:
     img = PhotoImage(file=rel_asset(r["file_name"]))
     img_refs[r["variable_name"]] = img
-    img_ids[r["variable_name"]] = cv.create_image(r["x_pos"], r["y_pos"], image=img)
+    img_ids[r["variable_name"]] = cv.create_image(r["x_pos"] * screen_width / 1920, r["y_pos"] * screen_height / 1080, image=img)
 if "interrupt_light" in img_ids:
     cv.itemconfigure(img_ids["interrupt_light"], state="hidden")
 
 txt_ids = {}
 for t in texts:
-    txt_ids[t["key"]] = cv.create_text(t["x_pos"], t["y_pos"], anchor="nw", text=t["text"],
-                                       fill=t["color"], font=(t["font_name"], t["font_size"]))
+    txt_ids[t["key"]] = cv.create_text(t["x_pos"] * screen_width / 1920, t["y_pos"] * screen_height / 1080, anchor="nw", text=t["text"],
+                                       fill=t["color"], font=(t["font_name"], int(t["font_size"] * min(screen_width / 1920, screen_height / 1080))))
 
 # Hide systemstat, placehand, and scanrdy initially if they exist
 for img_name in ["systemstat", "placehand", "scanrdy"]:
@@ -81,11 +86,11 @@ right_pane_img = Image.open(rel_asset("rightcamerapane.png"))
 LEFT_PANE_W, LEFT_PANE_H = left_pane_img.size
 RIGHT_PANE_W, RIGHT_PANE_H = right_pane_img.size
 
-# Create video feed at left camera pane position
+# Scale positions for different screen resolutions
 if left_pane_info:
-    left_video_id = cv.create_image(left_pane_info["x_pos"], left_pane_info["y_pos"], image=None)
+    left_video_id = cv.create_image(left_pane_info["x_pos"] * screen_width / 1920, left_pane_info["y_pos"] * screen_height / 1080, image=None)
 else:
-    left_video_id = cv.create_image(491, 562, image=None)  # Fallback
+    left_video_id = cv.create_image(491 * screen_width / 1920, 562 * screen_height / 1080, image=None)  # Fallback
 
 right_id = None
 latest_frame = None
@@ -245,9 +250,9 @@ def monitor_file():
                         imgtk = ImageTk.PhotoImage(image=img_copy)
                         
                         if right_pane_info:
-                            right_id = cv.create_image(right_pane_info["x_pos"], right_pane_info["y_pos"], image=imgtk)
+                            right_id = cv.create_image(right_pane_info["x_pos"] * screen_width / 1920, right_pane_info["y_pos"] * screen_height / 1080, image=imgtk)
                         else:
-                            right_id = cv.create_image(1427.85693359375, 562, image=imgtk)
+                            right_id = cv.create_image(1427.85693359375 * screen_width / 1920, 562 * screen_height / 1080, image=imgtk)
                             
                         cv.itemconfigure(img_ids["right_camera_pane"], state="hidden")
                         img_refs["captured_right"] = imgtk
